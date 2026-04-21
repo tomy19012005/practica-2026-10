@@ -1,7 +1,7 @@
 """Bucle FOR y Reduce."""
 
 from typing import Iterable
- 
+
 
 def multiplicar_basico(numeros: Iterable[float]) -> float:
     """Toma un lista de números y devuelve el producto todos los númreos. Si
@@ -36,9 +36,8 @@ def multiplicar_reduce(numeros: Iterable[float]) -> float:
     """CHALLENGE OPCIONAL - Re-escribir utilizando reduce.
     Referencia: https://docs.python.org/3.8/library/functools.html#functools.reduce
     """
-    return reduce(lambda acc, x: acc * x, numeros, 1) if len(numeros)!=0 else 0
-        
-    
+    return reduce(lambda acc, x: acc * x, numeros, 1) if len(numeros) != 0 else 0
+
 
 # NO MODIFICAR - INICIO
 if __name__ == "__main__":

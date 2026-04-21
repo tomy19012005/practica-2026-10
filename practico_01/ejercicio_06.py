@@ -10,7 +10,7 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     lista_num = []
     lista_str = []
     for x in lista:
-        if type(x) == int or type(x) == float:
+        if isinstance(x, (int, float)):
             lista_num.append(x)
         else:
             lista_str.append(x)
@@ -27,7 +27,7 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
-    return [x for x in lista if type(x) == str] + [x for x in lista if type(x) in (int, float)]
+    return [x for x in lista if isinstance(x, str)] + [x for x in lista if isinstance(x, (int, float))]
 
 
 # NO MODIFICAR - INICIO
@@ -42,7 +42,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    return sorted(lista, key=lambda x: 1 if type(x) in (int, float) else 0)
+    return sorted(lista, key=lambda x: 1 if isinstance(x, (int, float)) else 0)
 
 
 # NO MODIFICAR - INICIO
@@ -57,7 +57,7 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    return list(filter(lambda x: type(x) == str, lista)) + list(filter(lambda x: type(x) in (int, float), lista))
+    return list(filter(lambda x: isinstance(x, str), lista)) + list(filter(lambda x: isinstance(x, (int, float)), lista))
 
 
 # NO MODIFICAR - INICIO
@@ -75,7 +75,7 @@ def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[flo
         return []
     x = lista[0]
     resto = numeros_al_final_recursivo(lista[1:])
-    if type(x) == str:
+    if isinstance(x, str):
         return [x] + resto
     else:
         return resto + [x]

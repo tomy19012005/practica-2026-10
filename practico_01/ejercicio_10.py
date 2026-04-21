@@ -28,7 +28,6 @@ def tiene_pares_for_else(numeros: Iterable[int]) -> bool:
     """
     for x in numeros:
         if x % 2 == 0:
-            encontrado = True
             break
     else:
         return False
