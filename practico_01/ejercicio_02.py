@@ -21,7 +21,7 @@ assert maximo_encadenado(4, 9, 18) == 18
 assert maximo_encadenado(24, 9, 18) == 24
 # NO MODIFICAR - FIN
 
-
+ 
 ###############################################################################
 
 

@@ -7,7 +7,14 @@ def numeros_al_final_basico(lista: List[Union[float, str]]) -> List[Union[float,
     """Toma una lista de enteros y strings y devuelve una lista con todos los
     elementos numéricos al final.
     """
-    pass # Completar
+    lista_num = []
+    lista_str = []
+    for x in lista:
+        if type(x) == int or type(x) == float:
+            lista_num.append(x)
+        else:
+            lista_str.append(x)
+    return lista_str + lista_num
 
 
 # NO MODIFICAR - INICIO
@@ -20,7 +27,7 @@ assert numeros_al_final_basico([3, "a", 1, "b", 10, "j"]) == ["a", "b", "j", 3, 
 
 def numeros_al_final_comprension(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """Re-escribir utilizando comprensión de listas."""
-    pass # Completar
+    return [x for x in lista if type(x) == str] + [x for x in lista if type(x) in (int, float)]
 
 
 # NO MODIFICAR - INICIO
@@ -35,7 +42,7 @@ def numeros_al_final_sorted(lista: List[Union[float, str]]) -> List[Union[float,
     """Re-escribir utilizando la función sorted con una custom key.
     Referencia: https://docs.python.org/3/library/functions.html#sorted
     """
-    pass # Completar
+    return sorted(lista, key=lambda x: 1 if type(x) in (int, float) else 0)
 
 
 # NO MODIFICAR - INICIO
@@ -50,7 +57,7 @@ def numeros_al_final_filter(lista: List[Union[float, str]]) -> List[Union[float,
     """CHALLENGE OPCIONAL - Re-escribir utilizando la función filter.
     Referencia: https://docs.python.org/3/library/functions.html#filter
     """
-    pass # Completar
+    return list(filter(lambda x: type(x) == str, lista)) + list(filter(lambda x: type(x) in (int, float), lista))
 
 
 # NO MODIFICAR - INICIO
@@ -64,7 +71,14 @@ if __name__ == "__main__":
 
 def numeros_al_final_recursivo(lista: List[Union[float, str]]) -> List[Union[float, str]]:
     """CHALLENGE OPCIONAL - Re-escribir de forma recursiva."""
-    pass # Completar
+    if not lista:
+        return []
+    x = lista[0]
+    resto = numeros_al_final_recursivo(lista[1:])
+    if type(x) == str:
+        return [x] + resto
+    else:
+        return resto + [x]
 
 
 # NO MODIFICAR - INICIO

@@ -25,7 +25,7 @@ assert operacion_basica(0, 5, False) == 0
 assert operacion_basica(1, 0, True) == 0
 assert operacion_basica(1, 0, False) == "Operación no válida"
 # NO MODIFICAR - FIN
-
+ 
 
 ###############################################################################
 
